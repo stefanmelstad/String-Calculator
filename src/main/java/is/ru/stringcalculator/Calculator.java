@@ -6,6 +6,9 @@ package is.ru.stringcalculator;
 		if(text.equals("")){
 			return 0;
 		}
+		else if(text.contains("\n")){
+			return sum(splitNumbers(newline(text)));
+		}
 		else if (text.contains(",")){
 			return sum(splitNumbers(text));
 		}
@@ -27,5 +30,10 @@ package is.ru.stringcalculator;
 			total += toInt(number);
 		}
 		return total;
+	}
+
+	private static String newline(String newlines){
+		String numbers=newlines.replaceAll("\n", ",");
+		return numbers;
 	}
 }
